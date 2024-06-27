@@ -1,0 +1,10 @@
+{
+  "routerMap": [
+    {
+      "name": "custom/CustomRouterPage",
+      "pageModule": "customrouter",
+      "pageSourceFile": "src/main/ets/generated/RouterBuilder.ets",
+      "registerFunction": "customRouterPageRegister"
+    }
+  ]
+}

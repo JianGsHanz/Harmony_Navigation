@@ -1,0 +1,14 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@ohos/sysrouter": "file:../sysrouter",
+    "@ohos/dynamicsrouter": "file:../router/routermodule",
+    "@ohos/customrouter": "file:../router/customrouter"
+  }
+}
+
