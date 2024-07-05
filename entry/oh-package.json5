@@ -8,7 +8,8 @@
   "dependencies": {
     "@ohos/sysrouter": "file:../sysrouter",
     "@ohos/dynamicsrouter": "file:../router/routermodule",
-    "@ohos/customrouter": "file:../router/customrouter"
+    "@ohos/customrouter": "file:../router/customrouter",
+    "@ohos/customInterceptor": "file:../router/customInterceptor"
   }
 }
 

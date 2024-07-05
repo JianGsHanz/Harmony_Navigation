@@ -1,3 +1,4 @@
+import { DynamicsRouter, Interceptor, InterceptorExecute } from '@ohos/dynamicsrouter'
 import { CustomNavPage } from './CustomNavPage'
 import { SysNavPage } from './SysNavPage'
 
@@ -6,14 +7,18 @@ import { SysNavPage } from './SysNavPage'
 struct Index {
   pathStack: NavPathStack = new NavPathStack()
 
+  aboutToAppear(): void {
+    Interceptor.registerInterceptorPage(new CustomInterceptorExecute());
+  }
+
   @Builder
   pageMap(name: string) {
     if (name == 'SysNavigation') {
-      NavDestination(){
+      NavDestination() {
         SysNavPage()
       }.hideTitleBar(true)
     } else if (name == 'CustomNavigation') {
-      NavDestination(){
+      NavDestination() {
         CustomNavPage()
       }.hideTitleBar(true)
     }
@@ -33,5 +38,17 @@ struct Index {
       .height('100%')
     }
     .navDestination(this.pageMap)
+  }
+}
+
+export class CustomInterceptorExecute implements InterceptorExecute {
+  executeFunction(appUri: string, param?: string | undefined): boolean {
+    if (appUri !== undefined && appUri === "custom/CustomRouterPage") {
+      if (!AppStorage.get("login")) {
+        DynamicsRouter.pushUri("custom/InterceptorPage", param);
+        return true
+      }
+    }
+    return false
   }
 }

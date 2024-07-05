@@ -7,7 +7,8 @@
         "sources": [
         ],
         "packages": [
-          "@ohos/customrouter"
+          "@ohos/customrouter",
+          "@ohos/customInterceptor"
         ]
       },
     }

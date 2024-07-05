@@ -5,6 +5,27 @@ export struct SysNavPage {
   @State message: string = 'Hello Sys Nav';
   pageStack: NavPathStack = new NavPathStack();
 
+  aboutToAppear(): void {
+    // let  navigationInfo : NavigationInfo = this.queryNavigationInfo() as NavigationInfo
+    // this.pageStack = navigationInfo.pathStack;
+    //路由拦截 目前测试只能哪里跳转哪里拦截？
+    this.pageStack.setInterception({
+      willShow: (from: NavDestinationContext | "navBar", to: NavDestinationContext | "navBar",
+        operation: NavigationOperation, animated: boolean) => {
+        if (typeof to === "string") {
+          console.log("target page is navigation home page.");
+          return;
+        }
+        // 将跳转到PageTwo的路由重定向到PageOne
+        let target: NavDestinationContext = to as NavDestinationContext;
+        if (target != null && target.pathInfo != undefined && target.pathInfo.name === 'SysRouter') {
+          target.pathStack.pop(); //
+          target.pathStack.pushPathByName('InterceptPage', null);
+        }
+      }
+    })
+  }
+
   build() {
     Navigation(this.pageStack) {
       RelativeContainer() {

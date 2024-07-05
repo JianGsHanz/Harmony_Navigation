@@ -30,9 +30,6 @@ export struct CustomNavPage {
             middle: { anchor: 'Custom', align: HorizontalAlign.Center }
           })
           .onClick(() => {
-            // this.pageStack.pushPathByName('CustomRouter', new Array("zyh888", "zyh1888"), (p) => {
-            //   console.log("zyh...popinfo:" + p.result) //接收回传数据
-            // }, false) //path name对应route_map下的name
             DynamicsRouter.pushUri('custom/CustomRouterPage')
           })
       }
@@ -49,7 +46,7 @@ export struct CustomNavPage {
         // 根据模块名，获取WrappedBuilder对象，通过builder接口创建页面
         DynamicsRouter.getBuilder(name).builder(param);
       }
-      // 登录页是半模态，需要背景透明，设置为DIALOG
+      // 半模态，需要背景透明，设置为DIALOG
       .mode(NavDestinationMode.STANDARD)
       .hideTitleBar(true)
   }

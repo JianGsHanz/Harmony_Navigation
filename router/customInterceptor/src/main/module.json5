@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "customInterceptor",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet",
+      "2in1"
+    ]
+  }
+}
