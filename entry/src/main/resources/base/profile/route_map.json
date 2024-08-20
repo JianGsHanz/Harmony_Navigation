@@ -1,6 +1,11 @@
 {
   "routerMap": [
     {
+      "name": "SysNavPage",
+      "pageSourceFile": "src/main/ets/pages/SysNavPage.ets",
+      "buildFunction": "SysNavPageBuilder"
+    },
+    {
       "name": "InterceptPage",
       "pageSourceFile": "src/main/ets/pages/InterceptPage.ets",
       "buildFunction": "InterceptPageBuilder"

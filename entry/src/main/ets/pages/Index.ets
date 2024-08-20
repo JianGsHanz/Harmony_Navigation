@@ -9,14 +9,28 @@ struct Index {
 
   aboutToAppear(): void {
     Interceptor.registerInterceptorPage(new CustomInterceptorExecute());
+    //原生拦截
+    this.pathStack.setInterception({
+      willShow: (from: NavDestinationContext | "navBar", to: NavDestinationContext | "navBar",
+        operation: NavigationOperation, animated: boolean) => {
+        if (typeof to === "string") {
+          console.log("target page is navigation home page.");
+          return;
+        }
+        // 将跳转到PageTwo的路由重定向到PageOne
+        let target: NavDestinationContext = to as NavDestinationContext;
+        if (target != null && target.pathInfo != undefined && target.pathInfo.name === 'SysRouter'  && !AppStorage.get('login')) {
+          target.pathStack.pop(); //
+          target.pathStack.pushPathByName('InterceptPage', null);
+        }
+      }
+    })
   }
 
   @Builder
   pageMap(name: string) {
     if (name == 'SysNavigation') {
-      NavDestination() {
         SysNavPage()
-      }.hideTitleBar(true)
     } else if (name == 'CustomNavigation') {
       NavDestination() {
         CustomNavPage()
@@ -29,6 +43,7 @@ struct Index {
       Column() {
         Button('SysNavigation').width('100%').height(60).onClick(() => {
           this.pathStack.pushPath({ name: 'SysNavigation' })
+          // this.pathStack.pushPathByName('SysNavPage', null)
         })
         Blank().height(20)
         Button('CustomNavigation').width('100%').height(60).onClick(() => {
