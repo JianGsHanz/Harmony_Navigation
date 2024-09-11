@@ -1,6 +1,6 @@
 @Component
-export struct SysRouterPage {
-  @State message: string = 'Hello SysRouterPage';
+export struct SysRouterPage1 {
+  @State message: string = 'Hello SysRouterPage11111';
   pathStack: NavPathStack = new NavPathStack()
 
   aboutToAppear(): void {
@@ -14,9 +14,6 @@ export struct SysRouterPage {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .backgroundColor(Color.Brown)
-          .onClick(()=>{
-            this.pathStack.pushPathByName('SysRouter1', new Array("zyhfafafa", "zyhfafafa1")) //跨模块跳转不需相互依赖
-          })
 
         Button("返回").margin({ top: 50 }).backgroundColor(Color.Gray).onClick(() => {
           this.pathStack.pop('zyh result') //回传数据可为null
@@ -40,5 +37,5 @@ export struct SysRouterPage {
 
 @Builder
 export function SysRouterBuilder() {
-  SysRouterPage()
+  SysRouterPage1()
 }

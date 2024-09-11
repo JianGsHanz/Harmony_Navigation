@@ -7,8 +7,10 @@
   "license": "",
   "dependencies": {
     "@ohos/sysrouter": "file:../sysrouter",
+    "@ohos/sysrouter1": "file:../sysrouter1",
     "@ohos/dynamicsrouter": "file:../router/routermodule",
     "@ohos/customrouter": "file:../router/customrouter",
+    "@ohos/customrouterb": "file:../router/customrouterb",
     "@ohos/customInterceptor": "file:../router/customInterceptor"
   }
 }

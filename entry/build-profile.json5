@@ -8,6 +8,7 @@
         ],
         "packages": [
           "@ohos/customrouter",
+          "@ohos/customrouterb",
           "@ohos/customInterceptor"
         ]
       },

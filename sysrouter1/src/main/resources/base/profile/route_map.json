@@ -1,0 +1,12 @@
+{
+  "routerMap": [
+    {
+      "name": "SysRouter1",
+      "pageSourceFile": "src/main/ets/components/SysRouterPage1.ets",
+      "buildFunction": "SysRouterBuilder",
+      "data": {
+        "description" : "this is SysRouter"
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { AppRouter } from '@ohos/dynamicsrouter';
+import { AppRouter, DynamicsRouter } from '@ohos/dynamicsrouter';
 
 @AppRouter({ name: "custom/CustomRouterPage" })
 @Component
@@ -11,6 +11,9 @@ export struct CustomRouterPage {
         Text(this.message)
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
+          .onClick(()=>{
+            DynamicsRouter.pushUri('custom/CustomRouterPageB') //跨模块跳转不需相互依赖
+          })
       }
       .width('100%')
     }
